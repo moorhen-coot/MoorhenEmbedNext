@@ -2,9 +2,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+# Moorhen Embedding
 
 ```bash
+npm install
+mkdir -p ./public && cp -r ./node_modules/moorhen/public/* ./public/
+npm run dev
 npm run dev
 # or
 yarn dev
