@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "moorhen": "file:moorhen-0.21.1.tgz",
+    "moorhen": "0.21.2-react19.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "next": "15.3.3"
