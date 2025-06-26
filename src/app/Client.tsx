@@ -5,10 +5,10 @@ import { MoorhenReduxStore } from 'moorhen'
 
 export const Client = () => {
   return (
-  <div>
+  <div style={{width:"600px",maxWidth:"600px"}}>
       <Provider store={MoorhenReduxStore}>
           <WrappedMoorhen/>
       </Provider>
   </div>
-  );
+  )
 }

@@ -1,6 +1,6 @@
 import { addMolecule, addMap, setActiveMap } from 'moorhen'
-import { MoorhenContainer, MoorhenMolecule, MoorhenMap, MoorhenReduxStore } from 'moorhen'
-import { useRef } from 'react';
+import { MoorhenContainer, MoorhenMolecule, MoorhenMap, MoorhenReduxStore, setShowShortcutToast, setShowHoverInfo } from 'moorhen'
+import { useRef, useEffect } from 'react';
 import { moorhen } from 'moorhen/types/moorhen';
 import { Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,6 +28,13 @@ export const WrappedMoorhen = () =>  {
         glRef, timeCapsuleRef, commandCentre, moleculesRef, mapsRef, activeMapRef,
         lastHoveredAtom, prevActiveMoleculeRef
     }
+
+
+    useEffect(() => {
+        dispatch(setShowShortcutToast(false))
+        dispatch(setShowHoverInfo(false))
+    }, [])
+
 
     const setDimensions = () => {
         return [600,600]
@@ -80,7 +87,7 @@ export const WrappedMoorhen = () =>  {
             <Button onClick={() => onClick("5a3h")}>5a3h</Button>
             <Button onClick={() => onClick("4dfr")}>4dfr</Button>
             <Button onClick={() => onClick("5vof")}>5vof</Button>
-               <MoorhenContainer setMoorhenDimensions={setDimensions} {...collectedProps}/>
+               <MoorhenContainer viewOnly={false} sx={{ width: '600px', maxWidth: '600px' }} setMoorhenDimensions={setDimensions} {...collectedProps}/>
            </>
 
 }
