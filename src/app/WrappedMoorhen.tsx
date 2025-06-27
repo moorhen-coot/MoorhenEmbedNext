@@ -40,7 +40,7 @@ export const WrappedMoorhen = () =>  {
         lastHoveredAtom, prevActiveMoleculeRef
     }
 
-    //FIXME - When the Moorhen react-19 and master branches are made origin will be available in a reducer.
+    //FIXME - When the Moorhen react-19 and master branches are merged origin will be available in a reducer.
     const handleOriginUpdate = (e:any) => {
         let origin = e.detail.origin
         const newOriginText = -origin[0].toFixed(2)+" "+-origin[1].toFixed(2)+" "+-origin[2].toFixed(2)+" "
