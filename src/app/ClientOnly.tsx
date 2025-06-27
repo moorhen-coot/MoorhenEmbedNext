@@ -1,7 +1,11 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
 
-export function ClientOnly({ children, ...delegated }) {
+interface Props {
+    children?: ReactNode
+}
+
+export function ClientOnly({ children, ...delegated }: Props) {
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
     setHasMounted(true);

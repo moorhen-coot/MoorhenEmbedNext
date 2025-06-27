@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
+    "dev": "mkdir -p ./public && cp -r ./node_modules/moorhen/public/* ./public/; next dev --turbopack",
+    "build": "mkdir -p ./public && cp -r ./node_modules/moorhen/public/* ./public/; cp -r ./node_modules/moorhen/types/ src/types; next build; cp -r public/* .next/standalone/.next/server/app; mkdir -p .next/standalone/.next/server/app/_next/; cp -r .next/static .next/standalone/.next/server/app/_next/static",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "moorhen": "^0.21.2-react19.4",
+    "moorhen": "^0.21.2-react19.5",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
