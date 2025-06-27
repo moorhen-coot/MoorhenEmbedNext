@@ -34,7 +34,9 @@ export default function Home() {
               }
               })
               .then((returnedModule) => {
+                // @ts-ignore
                 window.cootModule = returnedModule
+                // @ts-ignore
                 window.CCP4Module = returnedModule
                 const cootModuleAttachedEvent = new CustomEvent("cootModuleAttached", { })
                 document.dispatchEvent(cootModuleAttachedEvent)
@@ -52,7 +54,9 @@ export default function Home() {
                       printErr(t: string) { console.log(["output", t]) }
                     })
                     .then((returnedModule) => {
+                      // @ts-ignore
                       window.cootModule = returnedModule;
+                      // @ts-ignore
                       window.CCP4Module = returnedModule;
                       const cootModuleAttachedEvent = new CustomEvent("cootModuleAttached", { })
                       document.dispatchEvent(cootModuleAttachedEvent)
@@ -76,7 +80,9 @@ export default function Home() {
               }
               })
               .then((returnedModule) => {
+                // @ts-ignore
                 window.cootModule = returnedModule
+                // @ts-ignore
                 window.CCP4Module = returnedModule
                 const cootModuleAttachedEvent = new CustomEvent("cootModuleAttached", { })
                 document.dispatchEvent(cootModuleAttachedEvent)
