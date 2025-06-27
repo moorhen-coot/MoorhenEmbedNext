@@ -89,9 +89,7 @@ export default function Home() {
         }
         }}
       />
-      <div>
-   <Client/>
-   </div>
+      <Client/>
   </>
   );
 }
