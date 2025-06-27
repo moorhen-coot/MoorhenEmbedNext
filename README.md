@@ -6,8 +6,6 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ```bash
 npm install
-mkdir -p ./public && cp -r ./node_modules/moorhen/public/* ./public/
-npm run dev
 npm run dev
 # or
 yarn dev
