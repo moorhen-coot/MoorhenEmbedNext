@@ -1,5 +1,5 @@
 import { addMolecule, addMap, setActiveMap } from 'moorhen'
-import { MoorhenContainer, MoorhenMolecule, MoorhenMap, MoorhenReduxStore, setShowShortcutToast, setShowHoverInfo, hideMolecule, showMolecule, hideMap, showMap } from 'moorhen'
+import { MoorhenContainer, MoorhenMolecule, MoorhenMap, MoorhenReduxStore, setShowShortcutToast, setShowHoverInfo, hideMolecule, showMolecule, hideMap, showMap, MoorhenRamachandran, MoorhenLigandValidation, MoorhenCarbohydrateValidation, MoorhenDifferenceMapPeaks, MoorhenValidation, MoorhenPepflipsDifferenceMap, MoorhenQScore, MoorhenUnmodelledBlobs, MoorhenWaterValidation, MoorhenFillMissingAtoms,MoorhenJsonValidation,MoorhenMMRRCCPlot } from 'moorhen'
 import { useRef, useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button, Table } from 'react-bootstrap';
 import { moorhen } from 'moorhen/types/moorhen';
@@ -34,6 +34,8 @@ export const WrappedMoorhen = () =>  {
     const hoveredAtom = useSelector((state: moorhen.State) => state.hoveringStates.hoveredAtom)
 
     const [originText,setOriginText] = useState<string>("")
+
+    const [modalSize, setModalSize] = useState<{ width: number; height: number }>({width: 500,height: 500})
 
     const collectedProps = {
         glRef, timeCapsuleRef, commandCentre, moleculesRef, mapsRef, activeMapRef,
@@ -224,8 +226,25 @@ export const WrappedMoorhen = () =>  {
                      <>{hoveredAtom.molecule.name+" "+hoveredAtom.cid}</>
                      }
                      </Row>
+                     <Row>
+                     <MoorhenRamachandran size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     </Row>
                  </Col>
              </Row>
            </Container>
 
 }
+/*
+//Not all of these work completely.
+                     <MoorhenValidation height={"500px"} minHeight={"500px"} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenRamachandran size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenPepflipsDifferenceMap size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenLigandValidation size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenCarbohydrateValidation size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenDifferenceMapPeaks resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenFillMissingAtoms size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenUnmodelledBlobs size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenMMRRCCPlot size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenQScore size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     <MoorhenJsonValidation size={modalSize} resizeTrigger={false} urlPrefix={"/baby-gru"} commandCentre={commandCentre} />
+                     */
