@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "moorhen": "^0.21.2-react19.7",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "moorhen": "^0.22.0-beta.3",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

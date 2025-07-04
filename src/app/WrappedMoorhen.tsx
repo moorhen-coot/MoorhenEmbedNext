@@ -32,6 +32,7 @@ export const WrappedMoorhen = () =>  {
     const backgroundColor = useSelector((state: moorhen.State) => state.sceneSettings.backgroundColor)
     const defaultBondSmoothness = useSelector((state: moorhen.State) => state.sceneSettings.defaultBondSmoothness)
     const hoveredAtom = useSelector((state: moorhen.State) => state.hoveringStates.hoveredAtom)
+    const origin = useSelector((state: moorhen.State) => state.glRef.origin)
 
     const [originText,setOriginText] = useState<string>("")
 
@@ -42,26 +43,18 @@ export const WrappedMoorhen = () =>  {
         lastHoveredAtom, prevActiveMoleculeRef
     }
 
-    //FIXME - When the Moorhen react-19 and master branches are merged origin will be available in a reducer.
-    const handleOriginUpdate = (e:any) => {
-        let origin = e.detail.origin
-        const newOriginText = -origin[0].toFixed(2)+" "+-origin[1].toFixed(2)+" "+-origin[2].toFixed(2)+" "
-        setOriginText(newOriginText)
-    }
-
     useEffect(() => {
         dispatch(setShowShortcutToast(false))
         dispatch(setShowHoverInfo(false))
-        document.addEventListener("originUpdate", handleOriginUpdate);
     }, [])
 
+    useEffect(() => {
+        const newOriginText = -origin[0].toFixed(2)+" "+-origin[1].toFixed(2)+" "+-origin[2].toFixed(2)+" "
+        setOriginText(newOriginText)
+    }, [origin])
 
     const setDimensions = () => {
         return [600,600]
-    }
-
-    const onClick = (pdbCode: string) => {
-        loadData(pdbCode)
     }
 
     const fetchMolecule = async (url: string, molName: string) => {
