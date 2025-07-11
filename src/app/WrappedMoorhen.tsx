@@ -1,5 +1,5 @@
 import { addMolecule, addMap, setActiveMap } from 'moorhen'
-import { MoorhenContainer, MoorhenMolecule, MoorhenMap, MoorhenReduxStore, setShowShortcutToast, setShowHoverInfo, hideMolecule, showMolecule, hideMap, showMap, MoorhenRamachandran, MoorhenLigandValidation, MoorhenCarbohydrateValidation, MoorhenDifferenceMapPeaks, MoorhenValidation, MoorhenPepflipsDifferenceMap, MoorhenQScore, MoorhenUnmodelledBlobs, MoorhenWaterValidation, MoorhenFillMissingAtoms,MoorhenJsonValidation,MoorhenMMRRCCPlot } from 'moorhen'
+import { MoorhenContainer, MoorhenMolecule, MoorhenMap, MoorhenReduxStore, setShowShortcutToast, setShowHoverInfo, hideMolecule, showMolecule, hideMap, showMap, MoorhenRamachandran, MoorhenLigandValidation, MoorhenCarbohydrateValidation, MoorhenDifferenceMapPeaks, MoorhenValidation, MoorhenPepflipsDifferenceMap, MoorhenQScore, MoorhenUnmodelledBlobs, MoorhenWaterValidation, MoorhenFillMissingAtoms,MoorhenJsonValidation,MoorhenMMRRCCPlot, autoOpenFiles } from 'moorhen'
 import { useRef, useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button, Table } from 'react-bootstrap';
 import { moorhen } from 'moorhen/types/moorhen';
@@ -127,6 +127,12 @@ export const WrappedMoorhen = () =>  {
                          <Button className="w-50" variant="primary" type="submit" onClick={buttonClicked}>
                              Load
                          </Button>
+                         <Form className="mb-3">
+                             <Form.Group className='moorhen-form-group' controlId="next-upload-session-form">
+                                 <Form.Label>Open files..</Form.Label>
+                                 <Form.Control type="file" multiple={true} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { autoOpenFiles(e.target.files, commandCentre, glRef, MoorhenReduxStore, monomerLibraryPath, backgroundColor, defaultBondSmoothness, timeCapsuleRef, dispatch) }}/>
+                             </Form.Group>
+                         </Form>
                      </Row>
                      <Row className="p-1">
                          <h6>Models</h6>
